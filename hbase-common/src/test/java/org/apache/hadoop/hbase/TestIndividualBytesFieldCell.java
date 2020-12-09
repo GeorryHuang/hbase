@@ -266,6 +266,26 @@ public class TestIndividualBytesFieldCell {
   }
 
   @Test
+  public void testWriteEmptyTags() throws IOException {
+    byte[] tags = Bytes.toBytes("");
+    int tagOffset = 0;
+    int length = 0;
+    IndividualBytesFieldCell cell
+      = new IndividualBytesFieldCell(Bytes.toBytes("row"), 0, 3,
+      Bytes.toBytes("family"), 0, 6,
+      Bytes.toBytes("qualifier"), 0, 9,
+      0L, KeyValue.Type.Put, 0,
+      Bytes.toBytes("value"), 0, 5,
+      tags, tagOffset, length);
+
+    try (ByteArrayOutputStream output = new ByteArrayOutputStream(300)) {
+      cell.write(output, true);
+      byte[] buf = output.toByteArray();
+      assertEquals(cell.getSerializedSize(true), buf.length);
+    }
+  }
+
+  @Test
   public void testWriteValue() throws IOException {
     byte[] value = Bytes.toBytes("---value---");
     int valueOffset = 3;
