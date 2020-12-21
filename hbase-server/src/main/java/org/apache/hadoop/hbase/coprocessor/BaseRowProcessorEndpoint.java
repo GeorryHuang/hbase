@@ -73,6 +73,7 @@ extends RowProcessorService implements RegionCoprocessor {
       long nonceGroup = request.hasNonceGroup() ? request.getNonceGroup() : HConstants.NO_NONCE;
       long nonce = request.hasNonce() ? request.getNonce() : HConstants.NO_NONCE;
       region.processRowsWithLocks(processor, nonceGroup, nonce);
+      region.
       T result = processor.getResult();
       ProcessResponse.Builder b = ProcessResponse.newBuilder();
       b.setRowProcessorResult(result.toByteString());

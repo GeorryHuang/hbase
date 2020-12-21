@@ -44,3 +44,11 @@ message Reference {
   required Range range = 2;
 }
 
+
+/**
+ * Reference file content between startKey and stopKey
+ */
+message RangeReference {
+  required bytes startKey = 1;
+  required bytes stopKey = 2;
+}

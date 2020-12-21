@@ -2730,7 +2730,6 @@ public class RSRpcServices implements HBaseRPCErrorHandler,
     } catch (IOException ie) {
       throw new ServiceException(ie);
     }
-
     checkBatchSizeAndLogLargeSize(request);
 
     // rpc controller is how we bring in data via the back door;  it is unprotobuf'ed data.
