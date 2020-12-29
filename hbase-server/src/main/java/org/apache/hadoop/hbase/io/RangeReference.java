@@ -43,6 +43,13 @@ public class RangeReference {
   private byte [] startKey;
   private byte [] stopKey;
 
+  public byte[] getStartKey() {
+    return startKey;
+  }
+
+  public byte[] getStopKey() {
+    return stopKey;
+  }
 
   public static RangeReference createRangeReference(final byte [] startKey, final byte[] stopKey) {
 
