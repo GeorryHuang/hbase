@@ -1464,7 +1464,8 @@ public class MasterRpcServices extends RSRpcServices implements
         ProtobufUtil.toTableName(req.getTableName()),
         ProtobufUtil.toTableDescriptor(req.getTableSchema()),
         req.getNonceGroup(),
-        req.getNonce());
+        req.getNonce(),
+        req.getLazyMode());
       return ModifyTableResponse.newBuilder().setProcId(procId).build();
     } catch (IOException ioe) {
       throw new ServiceException(ioe);
